@@ -8,7 +8,7 @@
     tools:context="com.epicodus.boggle.MainActivity">
 
     <TextView
-        android:text="Learn the Alphabet"
+        android:text="Boggle!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/headerTextView"
