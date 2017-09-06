@@ -2,6 +2,7 @@ package com.epicodus.boggle;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-
+    GridView gridView;
     ArrayList<String> roll = new ArrayList<String>();
     private String[][] die = new String[][] {
             {"R","I","F","O","B","X"},
@@ -22,17 +23,17 @@ public class MainActivity extends AppCompatActivity {
             {"H","M","S","R","A","O"},
             {"L","U","P","E","T","S"},
             {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"},
-            {"A","C","I","T","O","A"}};
+            {"Y","L","G","K","U","E"},
+            {"Qu","B","M","J","O","A"},
+            {"E","H","I","S","P","N"},
+            {"V","E","T","I","G","N"},
+            {"B","A","L","I","Y","T"},
+            {"E","Z","A","V","N","D"},
+            {"R","A","L","E","S","C"},
+            {"U","W","I","L","R","G"},
+            {"P","A","C","E","M","D"}};
 
-    @Bind(R.id.testRandom) TextView tester;
+    //@Bind(R.id.testRandom) TextView tester;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        for(int i=0; i<15; i++){
+        for(int i=0; i<=15; i++){
 
             roll.add(die[i][rollDie()]);
         }
 
-        tester.setText(roll.toString());
+     //   tester.setText(roll.toString());
+
+        gridView = (GridView) findViewById(R.id.baseGridView);
+        gridView.setAdapter(new BoggleAdapter(this, roll));
 
     }
 
